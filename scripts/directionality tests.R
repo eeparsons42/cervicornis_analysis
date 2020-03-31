@@ -25,3 +25,10 @@ t.test(Fert.rate~Night, data = acer_all_together)
 t.test(fert~night, data = all_dir_night)
 #cant use all_dir_night dataset to test for night effect accurately
 #the fert rates are repeated in the way that the data are organized to test for direction effect 
+
+ggplot(all_dir_night, aes(genet, fert)) + 
+  geom_boxplot(aes(col = dir))
+
+
+
+

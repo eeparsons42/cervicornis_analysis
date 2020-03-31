@@ -92,3 +92,8 @@ summary(acer_dir_lm)
 
 boxplot(fert~dir, data = all_dir_both, main ="directional crosses all acer data")
 t.test(fert~dir, data = all_dir_both)
+
+all_dir_night <- read.csv("C:/Users/Emily/Desktop/cervicornis_analysis/data/all crosses/all_dir_night.csv")
+
+
+
