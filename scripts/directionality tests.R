@@ -26,9 +26,17 @@ t.test(fert~night, data = all_dir_night)
 #cant use all_dir_night dataset to test for night effect accurately
 #the fert rates are repeated in the way that the data are organized to test for direction effect 
 
-ggplot(all_dir_night, aes(genet, fert)) + 
-  geom_boxplot(aes(col = dir))
+ggplot(all_dir_night, aes(genet, fert)) + ggtitle("fertilization rates based on directionality of genet") +
+  geom_boxplot(aes(col = dir)) 
 
+
+ggplot(all_dir_night, aes(night, fert)) + ggtitle("fertilization rates based on directionality of genet") +
+  geom_point(aes(col = dir)) + 
+  geom_smooth(aes(col=dir))
+#add in linear regression 
+
+direction_lm <- lm(fert~dir, data = all_dir_night)
+summary(direction_lm)
 
 
 
