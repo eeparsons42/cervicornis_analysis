@@ -4,6 +4,8 @@ library(tidyr)
 library(stringr)
 str(acer_all_split)
 
+acer_all_split <- read.csv("C:/Users/Emily/Desktop/cervicornis_analysis/data/data for heatmap/acer_all_split.csv")
+
 heatmap <- acer_all_split %>%
   mutate(Sperm=factor(Sperm)) %>%
   mutate(Ova=factor(Ova)) %>%
