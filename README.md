@@ -22,4 +22,4 @@ Code to recreate these results can be found in the "scripts" folder. The code fo
 
 # Acknowledgements 
 
-I would like to thank Dr. Dan McGlinn for all of his help and suggestions on preliminary tests to run on tis data, and for teaching me how to use R. I would also like to thank Kayla Pehl for looking over my code and offering many helpful suggestions and edits. 
+I would like to thank Dr. Dan McGlinn for all of his help and suggestions on preliminary tests to run on my data, and for patiently teaching me more about R. I would also like to thank Kayla Pehl for looking over my code and offering many helpful suggestions and edits. 
