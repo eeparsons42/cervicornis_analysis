@@ -1,8 +1,8 @@
-# Preliminary data analysis and data visulization for fertilization results of pairwise crosses of Staghorn coral ([i]Acropora cervicornis[/i]).
+# Preliminary data analysis and data visulization for fertilization results of pairwise crosses of Staghorn coral (<i>Acropora cervicornis</i>).
 Semester project for BIOL 502 
 
 #Objective of the project
-The data used here was collected over two nights for fertilization crosses between 10 genetically distinct colonies of Staghorn coral ([i]Acropora cervicornis[/i]), to eventually test for an effect of genetic relatedness or kinship on the fertilization rates. 
+The data used here was collected over two nights for fertilization crosses between 10 genetically distinct colonies of Staghorn coral (<i>Acropora cervicornis</i>), to eventually test for an effect of genetic relatedness or kinship on the fertilization rates. 
 With this data, this project has two goals; the first is to run some preliminary statistical analysis on the data in order to identify any additional predictor variables before testing for an effect of genetic relatedness (data have not been collected for this yet). The second goal of this project is to generate good figures for better visual representation and presentation of the data prior to genetic relatedness analysis. 
 
 
