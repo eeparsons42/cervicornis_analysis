@@ -2,6 +2,7 @@ library(ggplot2)
 library(dplyr)
 library(tidyr)
 library(stringr)
+library(RColorBrewer) 
 str(acer_all_split)
 
 acer_all_split <- read.csv("C:/Users/Emily/Desktop/cervicornis_analysis/data/data for heatmap/acer_all_split.csv")
@@ -13,9 +14,10 @@ heatmap <- acer_all_split %>%
   
   
   
-ggplot(heatmap, aes(Sperm, Ova, fill = Fert.rate)) + geom_tile(colour="white",size=0.25)+
+heatmap_both_nights <- ggplot(heatmap, aes(Sperm, Ova, fill = Fert.rate)) + geom_tile(colour="white",size=0.25)+
   #remove x and y axis labels
-  labs(x="",y="")+
+  labs(x="Sperm",y="Ova", title="Fertilization of A. cervicornis crosses (both nights)")+
+
   #remove extra space
   scale_y_discrete(expand=c(0,0))+
   #define new breaks on x-axis
@@ -32,13 +34,19 @@ ggplot(heatmap, aes(Sperm, Ova, fill = Fert.rate)) + geom_tile(colour="white",si
     plot.background=element_blank(),
     #remove plot border
     panel.border=element_blank())
-night1 <- acer_all_split[1:51,]                 
+
+#The batch crosses from both nights together on this heatmap...
+#...and the differing genets used both nights make this map confusing to look at
+#The following code splits up the data over two nights to make two seperate graphs that are easier to inturpret visually
 
 
-night2 <- acer_all_split[52:246,]
+night1 <- acer_all_split[1:51,] #making new dataframe with only data from night 1                 
 
-library(RColorBrewer)
 
+night2 <- acer_all_split[52:246,] #making new datafram with only data from night 2
+
+
+#creating heatmap for night 1 crosses 
 
 heatmap_night1 <- ggplot(night1, aes(Sperm, Ova, fill = Fert.rate)) + geom_tile(colour="white", size = 0.25 )+
   scale_y_discrete(expand=c(0,0))+
@@ -76,8 +84,8 @@ heatmap_night1 <- ggplot(night1, aes(Sperm, Ova, fill = Fert.rate)) + geom_tile(
         plot.title=element_text(colour=textcol,hjust=0,size=14,face="bold"))
   
   
-  
 
+#creating heatmap for night 2 crosses
 
 heatmap_night2 <- ggplot(night2, aes(Sperm, Ova, fill = Fert.rate)) + geom_tile(colour = "white", size = 0.25)+
   scale_y_discrete(expand=c(0,0))+
@@ -117,7 +125,9 @@ heatmap_night2 <- ggplot(night2, aes(Sperm, Ova, fill = Fert.rate)) + geom_tile(
 heatmap_night1
 heatmap_night2
 
-ggsave(heatmap_night1,filename="acer1_heatmap.png",height=5.5,width=8.8,units="in",dpi=200)
+#Saving heatmaps to 'figs' folder in project directory 
+ggsave(heatmap_both_nights,filename="acer_all_heatmap.png",height=5.5,width=8.8,units="in",dpi=200) 
+ggsave(heatmap_night1,filename="acer1_heatmap.png",height=5.5,width=8.8,units="in",dpi=200) 
 ggsave(heatmap_night2,filename="acer2_heatmap.png",height=5.5,width=8.8,units="in",dpi=200)
 
 
