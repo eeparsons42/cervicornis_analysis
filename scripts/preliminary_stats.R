@@ -10,11 +10,11 @@ all_dir_night <- read.csv("C:/Users/Emily/Desktop/cervicornis_analysis/data/all 
 #Dataset for testing the effect of night on fertilization rates
 acer_all_together <- read.csv("C:/Users/Emily/Desktop/cervicornis_analysis/data/all crosses/acer_all_together.csv")
 
-#Dataset for testing the effect of direction on fertilization rates organized by cross
-all_dir_both <- read.csv("C:/Users/Emily/Desktop/cervicornis_analysis/data/all crosses/all_dir_both.csv")
+
 
 #load these libraries before analysis 
 library(ggplot2) #for making plots using ggplot 
+
 
 #boxplot examining differences in fertilization rates between night 1 and night 2 
 boxplot(Fert.rate~Night, data = acer_all_together, main = "Mean fertilization rates between night 1 and night 2", ylab = "Mean fertilization rates")
@@ -28,9 +28,10 @@ t.test(Fert.rate~Night, data = acer_all_together)
 #If no significant difference is found, can proceed to treat both nights as the same dataset as all other variables were controlled for
 
 #plotting differences in fert rate based on directionality, organized by each cross
-cross_dir_boxplots <- ggplot(all_dir_both, aes(cross, fert)) + ggtitle("fertilization rates based on directionality of cross") +
+cross_dir_boxplots <- ggplot(all_dir_night, aes(cross, fert)) + ggtitle("fertilization rates based on directionality of cross") +
   geom_boxplot(aes(col = dir)) +
   geom_smooth(method = "lm", se = FALSE)
+
 
 
 #plotting differences in fert rate based on directionality, organized by genet
