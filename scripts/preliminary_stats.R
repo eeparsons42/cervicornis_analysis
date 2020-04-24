@@ -5,12 +5,9 @@
 #Read in data sets 
 
 #Dataset for testing the effect of direction on fertilization rates organized by genet
-all_dir_night <- read.csv("C:/Users/Emily/Desktop/cervicornis_analysis/data/all crosses/all_dir_night.csv") 
-
+all_dir_night <- read.csv("C:/Users/Emily/Desktop/cervicornis_analysis/data/data for statistical analysis/all_dir_night.csv")
 #Dataset for testing the effect of night on fertilization rates
-acer_all_together <- read.csv("C:/Users/Emily/Desktop/cervicornis_analysis/data/all crosses/acer_all_together.csv")
-
-
+acer_all_together <- read.csv("C:/Users/Emily/Desktop/cervicornis_analysis/data/data for statistical analysis/acer_all_together.csv")
 
 #load these libraries before analysis 
 library(ggplot2) #for making plots using ggplot 
@@ -46,7 +43,7 @@ summary(direction_lm)
 
 
 #run a linear model on all_dir_night dataset adding in night as an effect 
-acer_dir_night_lm <- lm(fert~ dir + night, data = all_dir_night)
+acer_dir_night_lm <- lm(fert~ dir * night, data = all_dir_night)
 summary(acer_dir_night_lm)
 
 #saving plots to "figs" in directory 
