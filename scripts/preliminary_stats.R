@@ -10,6 +10,7 @@ all_dir_night <- read.csv("C:/Users/Emily/Desktop/cervicornis_analysis/data/data
 acer_all_together <- read.csv("C:/Users/Emily/Desktop/cervicornis_analysis/data/data for statistical analysis/acer_all_together.csv")
 
 #load these libraries before analysis 
+install.packages('ggplot2')
 library(ggplot2) #for making plots using ggplot 
 
 
@@ -35,6 +36,9 @@ cross_dir_boxplots <- ggplot(all_dir_night, aes(cross, fert)) + ggtitle("fertili
 genet_dir_boxplots <- ggplot(all_dir_night, aes(genet, fert)) + ggtitle("fertilization rates based on directionality of genet") +
   geom_boxplot(aes(col = dir)) +
   geom_smooth(method = "lm", se = FALSE)
+genet_dir_boxplots
+
+
 
 
 #run a linear model on all_dir_night dataset 
@@ -50,3 +54,26 @@ summary(acer_dir_night_lm)
 ggsave(cross_dir_boxplots,filename="cross_dir_boxplots.png",height=5.5,width=8.8,units="in",dpi=200) 
 ggsave(genet_dir_boxplots,filename="genet_dir_boxplots.png",height=5.5,width=8.8,units="in",dpi=200)
 
+
+
+dir_night1 <- read.csv("C:/Users/Emily/Desktop/cervicornis_analysis/data/data for statistical analysis/dir_night1.csv")
+dir_night2 <- read.csv("C:/Users/Emily/Desktop/cervicornis_analysis/data/data for statistical analysis/dir_night2.csv")
+repeats <- read.csv("C:/Users/Emily/Desktop/cervicornis_analysis/data/data for statistical analysis/U50_U94.csv")
+
+
+#plotting differences in fert rate based on directionality, organized by genet AND night
+night1_dir_boxplots <- ggplot(dir_night1, aes(genet, fert)) + ggtitle("fertilization rates based on directionality of genet - night 1") +
+  geom_boxplot(aes(col = dir)) +
+  geom_smooth(method = "lm", se = FALSE)
+night1_dir_boxplots
+
+night2_dir_boxplots <- ggplot(dir_night2, aes(genet, fert)) + ggtitle("fertilization rates based on directionality of genet - night 2") +
+  geom_boxplot(aes(col = dir)) +
+  geom_smooth(method = "lm", se = FALSE)
+night2_dir_boxplots
+
+repeats <- ggplot(repeats, aes(genet, fert)) + ggtitle("fertilization rates based on directionality of genet - repeat samples") +
+  geom_boxplot(aes(col = dir)) +
+  geom_smooth(method = "lm", se = FALSE) 
+repeats
+  
